@@ -34,6 +34,7 @@ body {
     margin: 0;
     padding: 0px 10px 10px 0px;
     font-size: 50px;
+    color: #363636;
 }
 
 #button-grid {
@@ -44,7 +45,7 @@ body {
 }
 
 .button-numbers:hover {
-    background-color: rgb(255, 177, 33);
+    background-color: #ffb121;
 }
 
 .button-numbers:nth-child(13) {
@@ -56,7 +57,7 @@ body {
 }
 
 .button-signs {
-    background-color: rgb(143, 142, 142);
+    background-color: #8f8e8e;
 }
 
 .button-signs:hover {
@@ -69,6 +70,6 @@ button {
     border-radius: 1px;
     padding: 10px;
     font-size: 30px;
-    color: rgb(244, 244, 244);
+    color: #f4f4f4;
     font-family: inherit;
 }
