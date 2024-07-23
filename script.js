@@ -32,7 +32,7 @@ const arrayOfSecondNumber = [];
 const operation = firstNumber + operator + secondNumber
 
 function addDisplay(event) {
-    const getButton = event.target || event.key
+    const getButton = event.target
     const getTextButton = getButton.textContent
 
     if (operator === 0) {
