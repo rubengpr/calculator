@@ -91,9 +91,6 @@ function operate() {
     arrayOfSecondNumber.splice(0, arrayOfSecondNumber.length);
 }
 
-//Keyboard event listeners
-document.addEventListener("keydown", addDisplay)
-
 
 //Event listeners for the buttons
 button0.addEventListener("click", addDisplay)
