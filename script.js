@@ -13,27 +13,35 @@ const buttonAdd = document.getElementById("button-add")
 const buttonSubstract = document.getElementById("button-substract")
 const buttonMultiply = document.getElementById("button-multiply")
 const buttonDivide = document.getElementById("button-divide")
+const buttonPercentage = document.getElementById("button-percentage")
+const buttonDecimal = document.getElementById("button-decimal")
 const buttonEqual = document.getElementById("button-equal")
 const buttonClear = document.getElementById("button-clear")
 const displayText = document.getElementById("display-text")
 
 //Declare essential variables
-let firstNumber = 0
-let operator = 0
-let secondNumber = 0
+let firstNumber = 0;
+let operator = 0;
+let secondNumber = 0;
+const MAX_DISPLAY_LENGTH = 10;
 
+//Arrays where the numbers will be processed
 const arrayOfFirstNumber = [];
 const arrayOfCalculation = [];
 const arrayOfSecondNumber = [];
+const operation = firstNumber + operator + secondNumber
 
 function addDisplay(event) {
-    const getButton = event.target
+    const getButton = event.target || event.key
     const getTextButton = getButton.textContent
+
     if (operator === 0) {
     arrayOfFirstNumber.push(getTextButton);
     const arrayJoin = arrayOfFirstNumber.join("");
     firstNumber = Number(arrayJoin);
+
     displayText.textContent = firstNumber
+
     } else {
     arrayOfSecondNumber.push(getTextButton);
     const arrayJoin = arrayOfSecondNumber.join("");
@@ -75,13 +83,16 @@ function operate() {
         default:
             result = 'Error';
     }
-    displayText.textContent = result;
-    // Reset for next calculation
-    firstNumber = result;
+
+    displayText.textContent = result
+    firstNumber = result.toFixed(2);
     secondNumber = 0;
     operator = 0;
     arrayOfSecondNumber.splice(0, arrayOfSecondNumber.length);
 }
+
+//Keyboard event listeners
+document.addEventListener("keydown", addDisplay)
 
 
 //Event listeners for the buttons
@@ -99,6 +110,7 @@ buttonAdd.addEventListener("click", addOperator)
 buttonSubstract.addEventListener("click", addOperator)
 buttonMultiply.addEventListener("click", addOperator)
 buttonDivide.addEventListener("click", addOperator)
+buttonDecimal.addEventListener("click", addDisplay)
 buttonEqual.addEventListener("click", operate)
 buttonClear.addEventListener("click", clearDisplay)
 displayText.addEventListener("click", addDisplay)
